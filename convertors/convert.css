@@ -1,0 +1,338 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: linear-gradient(120deg, #74ebd5 0%, #9face6 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Navbar styles */
+.navbar {
+  background: linear-gradient(to right, #3a1c71, #d76d77, #ffaf7b);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.navbar-brand {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: #74ebd5;
+  text-shadow: 0 0 10px rgba(49, 12, 134, 0.5);
+}
+
+.navbar-toggler {
+  display: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.nav-menu {
+  display: flex;
+  list-style-type: none;
+}
+
+.nav-menu li {
+  margin-left: 1.5rem;
+}
+
+.nav-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #74ebd5;
+  transition: width 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: #15078b;
+}
+
+.nav-menu a:hover::after {
+  width: 100%;
+}
+
+/* Container styles */
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #3a1c71;
+  font-size: 2.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Form elements */
+input[type="file"],
+input[type="text"],
+select,
+button {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1.2rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+input[type="file"]:hover,
+input[type="text"]:hover,
+select:hover {
+  border-color: #74ebd5;
+}
+
+button {
+  background: linear-gradient(to right, #3a1c71, #d76d77);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(to right, #d76d77, #ffaf7b);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(215, 109, 119, 0.3);
+}
+
+/* Download link */
+#downloadLink,
+#pptDownloadLink {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(to right, #3a1c71, #d76d77);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+#downloadLink:hover,
+#pptDownloadLink:hover {
+  background: linear-gradient(to right, #d76d77, #ffaf7b);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(215, 109, 119, 0.3);
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-toggler {
+    display: block;
+    align-self: flex-end;
+    margin-top: -2rem;
+  }
+
+  .nav-menu {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-menu li {
+    margin: 0.5rem 0;
+  }
+
+  .container {
+    padding: 1.5rem;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.container {
+  animation: fadeIn 0.6s ease-out;
+}
+
+button {
+  animation: pulse 2s infinite;
+}
+
+/* Additional UI enhancements */
+input[type="file"]::file-selector-button {
+  background: linear-gradient(to right, #3a1c71, #d76d77);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: linear-gradient(to right, #d76d77, #ffaf7b);
+  transform: translateY(-2px);
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23333' viewBox='0 0 12 12'%3E%3Cpath d='M10.293 3.293 6 7.586 1.707 3.293A1 1 0 0 0 .293 4.707l5 5a1 1 0 0 0 1.414 0l5-5a1 1 0 1 0-1.414-1.414z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+/* Focus styles for accessibility */
+input:focus,
+select:focus,
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(116, 235, 213, 0.5);
+}
+
+/* Additional animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.navbar-brand {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+body {
+  background-size: 200% 200%;
+  animation: gradientBG 15s ease infinite;
+}
+
+/* Hover effect for containers */
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  background: linear-gradient(120deg, #74ebd5, #9face6);
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.container:hover::before {
+  opacity: 1;
+}
+
+.container:hover {
+  color: #3a1c71;
+}
+
+.h5{
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

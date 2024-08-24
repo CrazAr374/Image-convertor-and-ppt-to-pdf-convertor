@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image and PPT Converter</title>
+    <link rel="icon" type="image/png" href="Untitled (4).png">
+    <link rel="stylesheet" href="convert.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="#" class="navbar-brand">By Atharva</a>
+        <div class="navbar-toggler" onclick="toggleMenu()">Click</div>
+        <ul class="nav-menu" id="navMenu">
+          <li>
+            <a href="https://www.linkedin.com/in/atharva-rahate-272390269/" target="_blank">LinkedIn</a>
+          </li>
+          <li><a href="https://linktr.ee/atharva374" target="_blank">Linktree</a></li>
+          <li><a href="https://github.com/CrazAr374" target="_blank">GitHub</a></li>
+          <li>
+            <a href="https://www.instagram.com/atharva_rahate_374/" target="_blank">Instagram</a>
+          </li>
+          <li>
+            <a href="https://www.hackerrank.com/profile/atharva_rahate31" target="_blank">HackerRank</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h1>Image to Image Converter</h1>
+      <input type="file" id="imageInput" accept="image/*" />
+      <select id="formatSelect">
+        <option value="jpeg">JPEG</option>
+        <option value="png">PNG</option>
+        <option value="webp">WEBP</option>
+        <option value="jpg">JPG</option>
+        <option value="ico">ICO</option>
+      </select>
+      <button onclick="convertImage()">Convert Image</button>
+      <input
+        type="text"
+        id="imageUrl"
+        placeholder="Paste your image URL here"
+      />
+      <button onclick="convertImageByURL()">Convert Image by URL</button>
+      <canvas id="canvas" style="display: none"></canvas>
+      <a id="downloadLink" style="display: none">Download Converted Image</a>
+    </div>
+
+    <div class="container">
+      <h1>PPT to PDF Converter</h1>
+      <input type="file" id="pptInput" accept=".pptx" />
+      <button onclick="convertPPTToPDF()">Convert PPT to PDF</button>
+      <a id="pptDownloadLink" style="display: none">Download Converted PDF</a>
+    </div>
+
+    <footer class="footer">
+      <div class="h5">Made by Atharva Rahate</div>
+    </footer>
+
+    <script src="convert.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pptx2html/1.3.4/pptx2html.min.js"></script>
+  </body>
+</html>
